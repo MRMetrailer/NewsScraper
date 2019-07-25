@@ -1,0 +1,35 @@
+<div class="wrapper">
+
+    <header>
+        <a href="/allArticles">Home</a>
+        <a href="/savedArticles">Saved Articles</a>
+    </header>
+
+    <div class="saved-article-div">
+        <div class="saved-article">
+            {{#each this.articles}}
+            <ul>
+                <li class="title">{{title}}</li>
+                <li>{{summary}}</li>
+                <li><a href="{{link}}" target="_blank">Read Article</a></li>
+                <button class="delete-article-button" data-title="{{title}}" data-link="{{link}}"
+                    data-id="{{id}}">Delete Saved Article</button>
+
+                <div class="comment-div">
+                    <p class="comment-header">Article Comments: {{title}}</p>
+                    {{#articleComments}}
+                    <ul>
+                        <li>{{body}} <button data-id="{{id}}" class="delete-comment-button">X</button></li>
+                    </ul>
+                    {{/articleComments}}
+                </div>
+
+                <form action="api/submit/{{id}}" method="POST">
+                    <input type="text" class="comment-area" placeholder="Add Comment" name="comment"></input>
+                    <button type="submit" class="submit-comment" data-id="{{id}}" name="submit">Save Comment</button>
+                </form>
+            </ul>
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <header>
+        <div class="links">
+            <a href="/allArticles">Home</a>
+            <a href="/savedArticles">Saved Articles</a>
+            <a href="/scrape"><button class="scrape-button">Scrape Articles</button></a>
+        </div>
+    </header>
+
+    <div class="all-article-div">
+        {{#each articles}}
+        <ul>
+            <li class="title">{{title}}</li>
+            <li class="summary">{{summary}}</li>
+            <li class="link"><a href="{{link}}" target="_blank">Read Article</a></li>
+            <button class="save-button" data-title="{{title}}" data-link="{{link}}" data-summary="{{summary}}"
+                data-id="{{id}}">Save Article</button>
+        </ul>
+        {{/each}}
+    </div>
+</div>
