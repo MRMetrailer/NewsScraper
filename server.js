@@ -1,9 +1,7 @@
 var express = require("express")
 var logger = require("morgan");
 var mongoose = require("mongoose");
-var axios = require("axios");
-var cheerio = require("cheerio");
-var db = require("./models");
+
 var PORT = 3000;
 var app = express();
 
@@ -18,7 +16,7 @@ mongoose.connect(MONGODB_URI);
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var apiRoutes = require("./routes/api.js");
+var apiRoutes = require("./routes/apiRoutes.js");
 app.use(apiRoutes);
 
 app.listen(PORT, function() {
