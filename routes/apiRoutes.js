@@ -3,6 +3,7 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("../models/index.js");
 var app = express();
+var router = express.Router();
 
 // Scrape
 app.get("/scrape", function (req, res) {
@@ -50,7 +51,7 @@ app.get("/savedArticles", function (req, res) {
             res.render("saved", { articles: articles });
         })
         .catch(function (err) {
-            res.json(err):
+            res.json(err);
         });
 });
 
@@ -106,7 +107,7 @@ app.post("/api/submit/:id", function(req,res) {
             { $push: { articleComments: data._id } }, { new: true }
         );
     })
-    res.redirect("back"):
+    res.redirect("back");
 });
 
 // Delete Comment
